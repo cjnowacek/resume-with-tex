@@ -29,3 +29,30 @@ jobs:
           name: resumes
           path: exports/*.pdf
           retention-days: 90
+
+      - name: Sync PDFs to website repo
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        env:
+          DEPLOY_KEY: ${{ secrets.WEBSITE_DEPLOY_KEY }}
+        run: |
+          if [ -z "$DEPLOY_KEY" ]; then
+            echo "WEBSITE_DEPLOY_KEY secret not set; skipping website sync."
+            exit 0
+          fi
+          mkdir -p ~/.ssh
+          printf '%s\n' "$DEPLOY_KEY" > ~/.ssh/website_key
+          chmod 600 ~/.ssh/website_key
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
+          export GIT_SSH_COMMAND="ssh -i ~/.ssh/website_key"
+          git clone --depth 1 git@github.com:cjnowacek/PHP-Website.git website
+          cp exports/CJ-Nowacek-Pipeline-Resume.pdf exports/CJ-Nowacek-TechArt-Resume.pdf website/static/files/
+          cd website
+          if git diff --quiet; then
+            echo "PDFs unchanged; nothing to sync."
+            exit 0
+          fi
+          git config user.name "resume-ci"
+          git config user.email "actions@users.noreply.github.com"
+          git add static/files
+          git commit -m "Update resume PDFs from Resume-with-Tex CI"
+          git push
