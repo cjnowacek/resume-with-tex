@@ -26,3 +26,4 @@ The Makefile writes `profile_toggle.tex` (gitignored) to flip the conditionals, 
 - **IP-safe MediaLab wording:** no internal tool codenames, render-farm node counts, vendor names for the render-manager migration, client names, or deployment internals. Say "modern render-management platform", "the studio's Windows render farm".
 - The only hard metric allowed is the ~25% asset-processing improvement from Hi-Rez.
 - The built PDFs flow to the portfolio site automatically: on push to main, CI syncs `exports/*.pdf` into the PHP-Website repo's `static/files/` (via the `WEBSITE_DEPLOY_KEY` secret, a write deploy key on PHP-Website), which triggers that repo's SiteGround deploy. If the secret is missing the step skips gracefully; copy PDFs by hand in that case.
+- Dates in experience and education entries are year-only by design (no months), e.g. `2026--Present`, `2023--2024`.
