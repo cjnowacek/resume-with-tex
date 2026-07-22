@@ -1,0 +1,136 @@
+% cv_teaching_cjnowacek.tex
+% Curriculum vitae for adjunct teaching applications (character rigging).
+% Standalone document: no profile toggles, always builds the same PDF.
+\documentclass[10pt,a4paper,sans]{moderncv}
+
+\moderncvstyle{classic}
+\moderncvcolor{green}
+
+\usepackage[utf8]{inputenc}
+\usepackage[scale=0.95]{geometry}
+\usepackage{enumitem}
+\setlength{\hintscolumnwidth}{2.8cm}
+\setlength{\separatorcolumnwidth}{0.02\textwidth}
+\setlength{\parskip}{0pt}
+
+% ---------------------------
+% PERSONAL INFO
+% ---------------------------
+\name{CJ}{Nowacek}
+\title{Character Rigging \& Technical Art}
+\address{Cleveland Heights, Ohio}{}{}
+\phone[mobile]{(216) 469 0959}
+\email{cj@cjnowacek.com}
+\homepage{cjnowacek.com}
+\social[github]{cjnowacek}
+
+\begin{document}
+\makecvtitle
+
+% ---------------------------
+% PROFILE
+% ---------------------------
+\section{Profile}
+\cvitem{}{Character rigger and technical artist who shipped \textbf{SMITE 2} at Hi-Rez Studios, with ongoing freelance rigging work and full-time pipeline development experience at an architectural visualization studio. Production practice spans rigging, skinning, and runtime optimization in Maya, 3ds Max, and Unreal Engine 5, alongside the Python tooling that supports artists. Strong record of knowledge transfer: writing documentation and runbooks, building and explaining artist-facing tools, and translating technical concepts for non-technical collaborators.}
+
+% ---------------------------
+% EDUCATION
+% ---------------------------
+\section{Education}
+\cventry{2023}{BFA, Animation and Game Design}{Cleveland Institute of Art}{Cleveland, OH}{}{Senior Project: Cinematic story driven game}
+
+% ---------------------------
+% TEACHING, MENTORSHIP & KNOWLEDGE TRANSFER
+% ---------------------------
+\section{Teaching, Mentorship \& Knowledge Transfer}
+\cvitem{Documentation}{Wrote documentation and runbooks for automated pipeline processes at Hi-Rez Studios, supporting team scaling and knowledge transfer across the technical animation team}
+\cvitem{Tool Training}{Builds, documents, and supports artist-facing tools in daily production at MediaLab 3D Solutions, walking artists through new workflows and iterating on their feedback}
+\cvitem{User Guides}{Authored end-user documentation for automated asset-processing tools at Anuttacon, incorporating stakeholder feedback to meet production needs}
+% TODO (CJ): add real entries here as they happen, e.g.:
+% \cvitem{Guest Lectures}{...CIA classroom visits, portfolio reviews, demo sessions...}
+% \cvitem{Mentorship}{...interns or junior artists mentored, community mentoring...}
+% \cvitem{Workshops}{...rigging workshops, game jam instruction...}
+
+% ---------------------------
+% PROFESSIONAL EXPERIENCE
+% ---------------------------
+\section{Professional Experience}
+
+\cventry{2026--Present}{CGI Pipeline Developer}{MediaLab 3D Solutions}{Remote}{}{
+	\begin{itemize}[leftmargin=0.6cm, itemsep=0pt]
+		\item Designed and built a Python scene-automation framework for scene cleanup, optimization, diagnostics, and render-farm submission, accessible via CLI, PyQt desktop app, and native 3ds Max integration
+		\item Built artist-facing tools for the studio's central 3ds Max toolset, plus the packaging and deployment workflow that ships them to production
+	\end{itemize}}
+
+\cventry{2026}{MaxScript Specialist (Contract)}{MediaLab 3D Solutions}{Remote}{}{
+	\begin{itemize}[leftmargin=0.6cm, itemsep=0pt]
+		\item Built MaxScript and Python automation for asset processing and repetitive scene operations in 3ds Max; converted to full-time pipeline developer role
+	\end{itemize}}
+
+\cventry{2025}{Technical Artist (Contract)}{Anuttacon via GoDemic}{Remote}{}{
+	\begin{itemize}[leftmargin=0.6cm, itemsep=0pt]
+		\item Developed automated asset-processing tools in Python and MEL, iterating on feedback to improve usability and reliability
+		\item Wrote user documentation and incorporated stakeholder feedback to meet production needs
+	\end{itemize}}
+
+\cventry{2024--2025}{Technical Animator (Contract)}{Hi-Rez Studios}{Remote}{}{
+	\begin{itemize}[leftmargin=0.6cm, itemsep=0pt]
+		\item Built Python and MaxScript automation for asset integration and deployment in an Unreal Engine 5 environment, eliminating manual setup and reducing deployment errors
+		\item Collaborated with Animation, Design, and QA to find bottlenecks and automate milestone-delivery steps
+	\end{itemize}}
+
+\cventry{2023--Present}{Rigging Artist (Freelance)}{Independent}{Remote}{}{
+	\begin{itemize}[leftmargin=0.6cm, itemsep=0pt]
+		\item Character rigging for original characters and independent projects in Maya, including custom rigs for \textit{Grimmlins Tale}
+	\end{itemize}}
+
+\cventry{2023--2024}{Associate Technical Animator}{Hi-Rez Studios}{Alpharetta, GA}{}{
+	\begin{itemize}[leftmargin=0.6cm, itemsep=0pt]
+		\item Shipped \textbf{SMITE 2} as part of the technical animation team: character rigging alongside the Python/MaxScript tooling that supported the asset pipeline
+		\item Built and refined character rigs, partnering with animation to deliver production-ready assets
+		\item Optimized character assets for runtime performance in a live multiplayer title, keeping rigs and skinned meshes within performance budgets
+		\item Developed automated batch-processing tools in Python and MaxScript, cutting manual asset-processing time by \textbf{25\%}
+	\end{itemize}}
+
+\cventry{2022--2023}{Technical Animator Intern}{Hi-Rez Studios}{Remote}{}{
+	\begin{itemize}[leftmargin=0.6cm, itemsep=0pt]
+		\item Developed Python scripts to automate repetitive production tasks, improving efficiency and reducing manual errors
+	\end{itemize}}
+
+% ---------------------------
+% SHIPPED WORK & CREDITS
+% ---------------------------
+\section{Shipped Work \& Credits}
+\cvitem{2024}{\textbf{SMITE 2} (Hi-Rez Studios): character rigging and asset-pipeline tooling for a live multiplayer title}
+\cvitem{2023--Present}{\textit{Grimmlins Tale} and independent projects: freelance character rigs in Maya}
+
+% ---------------------------
+% TECHNICAL SKILLS
+% ---------------------------
+\section{Technical Skills}
+\cvitem{Rigging}{Character rigging and skinning in Maya and 3ds Max; deformation setup; rig and skinned-mesh optimization for real-time engines}
+\cvitem{Programming}{Python (Maya API, PyMEL, PyQt/PySide, pymxs), MaxScript, MEL, Bash, Git, Perforce}
+\cvitem{DCC/Engines}{Maya, 3ds Max, Unreal Engine 5, Unity, Substance Painter}
+
+% ---------------------------
+% SECTIONS TO ADD WHEN THERE IS REAL MATERIAL
+% (standard academic-CV sections; uncomment and fill as they become true)
+% ---------------------------
+% \section{Talks \& Presentations}
+% \cvitem{20XX}{...}
+%
+% \section{Professional Affiliations}
+% \cvitem{}{...SIGGRAPH, IGDA, local game-dev groups...}
+%
+% \section{Awards \& Honors}
+% \cvitem{20XX}{...}
+%
+% \section{References}
+% \cvitem{}{Available upon request}
+
+\vfill
+\begin{center}
+	\footnotesize \textit{Updated \today}
+\end{center}
+
+\end{document}
