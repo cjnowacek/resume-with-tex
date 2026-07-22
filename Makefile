@@ -5,6 +5,9 @@ TA_OUT := exports/CJ-Nowacek-TechArt-Resume.pdf
 CV_TEX := cv_teaching_cjnowacek.tex
 CV_BASE := cv_teaching_cjnowacek
 CV_OUT := exports/CJ-Nowacek-Rigging-Instructor-CV.pdf
+REFS_TEX := references_cjnowacek.tex
+REFS_BASE := references_cjnowacek
+REFS_OUT := exports/CJ-Nowacek-References.pdf
 
 LATEXMK := latexmk -pdf -interaction=nonstopmode -halt-on-error
 
@@ -19,7 +22,7 @@ else
     OPEN_CMD := start
 endif
 
-.PHONY: it techart cv clean realclean open-it open-techart open-cv help
+.PHONY: it techart cv refs clean realclean open-it open-techart open-cv help
 
 # Default target shows help
 help:
@@ -27,6 +30,7 @@ help:
 	@echo "  make it          - Build IT/DevOps resume"
 	@echo "  make techart     - Build Technical Artist resume"
 	@echo "  make cv          - Build rigging-instructor teaching CV"
+	@echo "  make refs        - Build references page (placeholder template)"
 	@echo "  make open-it     - Build and open IT resume"
 	@echo "  make open-techart- Build and open TechArt resume"
 	@echo "  make clean       - Remove temp files (keep PDFs)"
@@ -61,6 +65,15 @@ cv:
 	@echo "✓ Successfully built $(CV_OUT)"
 	@latexmk -c $(CV_TEX)
 
+refs:
+	@echo "Building references page..."
+	@mkdir -p exports
+	@$(LATEXMK) $(REFS_TEX) || { echo "❌ LaTeX compilation failed"; exit 1; }
+	@test -f $(REFS_BASE).pdf || { echo "❌ PDF not generated"; exit 1; }
+	@cp $(REFS_BASE).pdf $(REFS_OUT)
+	@echo "✓ Successfully built $(REFS_OUT)"
+	@latexmk -c $(REFS_TEX)
+
 open-it: it
 	@${OPEN_CMD} $(IT_OUT) 2>/dev/null || echo "⚠️  Could not open PDF. Find it at: $(IT_OUT)"
 
@@ -77,5 +90,5 @@ clean:
 
 realclean:
 	@latexmk -C
-	@rm -f profile_toggle.tex $(IT_OUT) $(TA_OUT) $(CV_OUT)
+	@rm -f profile_toggle.tex $(IT_OUT) $(TA_OUT) $(CV_OUT) $(REFS_OUT)
 	@echo "✓ Removed all generated files"

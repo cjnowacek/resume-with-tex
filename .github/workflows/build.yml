@@ -26,6 +26,9 @@ jobs:
       - name: Build Teaching CV
         run: make cv
 
+      - name: Build References Page
+        run: make refs
+
       - name: Upload PDFs
         uses: actions/upload-artifact@v5
         with:
